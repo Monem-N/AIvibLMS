@@ -1,0 +1,262 @@
+/* CourseEditorResources Component Styles */
+
+.course-editor-resources {
+  padding: 1rem 0;
+}
+
+.resources-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.resources-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.resources-search {
+  position: relative;
+  width: 300px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.resources-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.empty-icon {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.resources-empty h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.resources-empty p {
+  color: #666;
+  margin: 0 0 1.5rem 0;
+}
+
+.resources-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.resource-group {
+  margin-bottom: 1.5rem;
+}
+
+.resource-group-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.resource-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.resource-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.resource-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+}
+
+.resource-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.resource-icon.image {
+  color: #9b59b6;
+}
+
+.resource-icon.video {
+  color: #e74c3c;
+}
+
+.resource-icon.audio {
+  color: #3498db;
+}
+
+.resource-icon.pdf {
+  color: #e74c3c;
+}
+
+.resource-icon.document {
+  color: #3498db;
+}
+
+.resource-icon.spreadsheet {
+  color: #27ae60;
+}
+
+.resource-icon.presentation {
+  color: #f39c12;
+}
+
+.resource-icon.other {
+  color: #7f8c8d;
+}
+
+.resource-info {
+  flex: 1;
+  min-width: 0; /* Allows text truncation to work */
+}
+
+.resource-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 0.25rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resource-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.resource-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+  background-color: #f0f0f0;
+  color: #4a90e2;
+}
+
+.btn-icon.delete:hover {
+  color: #e74c3c;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #3a80d2;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .resources-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .resources-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .resources-search {
+    width: 100%;
+  }
+  
+  .resource-list {
+    grid-template-columns: 1fr;
+  }
+}

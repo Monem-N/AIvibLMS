@@ -1,0 +1,128 @@
+/* CourseCard component styles */
+
+.course-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 0; /* Start invisible for fade-in effect */
+}
+
+/* Visible state for fade-in (replaces jQuery fadeIn) */
+.course-card.visible {
+  opacity: 1;
+}
+
+/* Enrolled state (replaces jQuery addClass) */
+.course-card.enrolled {
+  border-color: #4caf50;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.expand-icon {
+  color: #666;
+  font-size: 12px;
+}
+
+.description {
+  padding: 0 16px;
+  margin: 8px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Expanded state */
+.course-card.collapsed .card-details {
+  max-height: 0;
+  opacity: 0;
+}
+
+.course-card.expanded .card-details {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.card-details {
+  padding: 0 16px 16px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.details-row {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-weight: bold;
+  width: 100px;
+  color: #555;
+}
+
+.value {
+  flex: 1;
+  color: #333;
+}
+
+.loading {
+  padding: 16px 0;
+  text-align: center;
+  color: #999;
+}
+
+.enroll-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 16px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.enroll-button:hover {
+  background-color: #1976d2;
+}
+
+.enrollment-confirmation {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  border-radius: 4px;
+  color: #2e7d32;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

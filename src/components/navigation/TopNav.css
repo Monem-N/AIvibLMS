@@ -1,0 +1,284 @@
+/* TopNav component styles */
+
+.top-nav {
+  height: 40px;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.top-nav-bar {
+  padding: 6px 0;
+  height: 40px;
+}
+
+.top-nav .star,
+.top-nav .search,
+.top-nav .mail,
+.top-nav .close-search {
+  fill: white;
+}
+
+.top-nav .close-search {
+  width: 16px;
+  height: 16px;
+}
+
+.top-nav .top-nav-item {
+  margin: 0 1%;
+  fill: white;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.top-nav .top-nav-item:hover {
+  transform: scale(1.1);
+}
+
+.top-nav .logo {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  right: 0;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.top-nav .logo:hover {
+  transform: scale(1.05);
+}
+
+.top-nav .logo .icon {
+  width: 40px;
+  height: 28px;
+  stroke: white;
+  fill: white;
+}
+
+.top-nav .logo .logo-wording {
+  width: 80px;
+}
+
+.top-nav .user-controls {
+  display: inline-block;
+  margin-left: 10px;
+  color: white;
+  font-size: 14px;
+}
+
+.top-nav .user-controls a {
+  color: white;
+  font-size: 14px;
+}
+
+.top-nav .user-controls .lang {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.top-nav .user-controls .icon {
+  fill: white;
+  stroke: white;
+  margin-right: 10px;
+}
+
+.top-nav .user-controls .icon.sign-out {
+  margin-right: 0;
+  margin-left: 3px;
+  height: 15px;
+  transition: transform 0.2s ease;
+}
+
+.top-nav .user-controls .icon.sign-out:hover {
+  transform: scale(1.1);
+}
+
+.top-nav .user-controls .icon.chat,
+.top-nav .user-controls .icon.close-chat {
+  margin: 0;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.top-nav .user-controls .icon.chat:hover,
+.top-nav .user-controls .icon.close-chat:hover {
+  transform: scale(1.1);
+}
+
+.top-nav .user-controls .user-controls-cta {
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.top-nav .user-controls .user-controls-cta .photo {
+  border-radius: 25px;
+  margin-right: 5px;
+}
+
+.top-nav .user-controls .user-controls-cta a {
+  text-decoration: none;
+}
+
+/* Nav icon animation */
+.top-nav .nav-icon {
+  margin-top: 7px;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-left: 20px;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.top-nav .nav-icon span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: white;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.top-nav .nav-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.top-nav .nav-icon span:nth-child(2),
+.top-nav .nav-icon span:nth-child(3) {
+  top: 6px;
+}
+
+.top-nav .nav-icon span:nth-child(4) {
+  top: 12px;
+}
+
+.top-nav .nav-icon.opened span:nth-child(1) {
+  top: 6px;
+  width: 0%;
+  left: 50%;
+}
+
+.top-nav .nav-icon.opened span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.top-nav .nav-icon.opened span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.top-nav .nav-icon.opened span:nth-child(4) {
+  top: 14px;
+  width: 0%;
+  left: 50%;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.fade-in {
+  opacity: 1;
+}
+
+/* Flyout panels */
+.flyout {
+  position: fixed;
+  background-color: white;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.sidenav {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  transform: translateX(-100%);
+}
+
+.sidenav.opened {
+  transform: translateX(0);
+}
+
+.sidenav.closed {
+  transform: translateX(-100%);
+}
+
+.search-panel {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  transform: translateY(-100%);
+}
+
+.search-panel.opened {
+  transform: translateY(0);
+}
+
+.search-panel.closed {
+  transform: translateY(-100%);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .top-nav .top-nav-item {
+    display: none;
+  }
+
+  .top-nav .logo {
+    width: 40px;
+  }
+
+  .top-nav .logo .logo-wording {
+    display: none;
+  }
+
+  .top-nav .user-controls {
+    float: right;
+    margin-left: 0;
+    margin-top: 3px;
+    margin-right: 20px;
+  }
+
+  .top-nav .user-controls .lang {
+    display: none;
+  }
+
+  .top-nav .user-controls .chat-icon {
+    display: none;
+  }
+
+  .top-nav .user-controls .icon.sign-out {
+    display: none;
+  }
+
+  .top-nav .nav-icon {
+    display: block;
+    float: right;
+    margin-top: 3px;
+    margin-right: 20px;
+  }
+}

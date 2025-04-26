@@ -1,0 +1,156 @@
+/* CalendarWidget Component Styles */
+
+.calendar-widget {
+  height: 100%;
+}
+
+.events-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.events-empty p {
+  color: #666;
+  margin: 0 0 1rem 0;
+}
+
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.event-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #9b59b6;
+  color: white;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.date-day {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.event-details {
+  flex: 1;
+}
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.event-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  flex: 1;
+  padding-right: 0.5rem;
+}
+
+.event-type {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: #f0f0f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #666;
+  text-transform: capitalize;
+  flex-shrink: 0;
+}
+
+.event-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.event-icon.class {
+  color: #3498db;
+}
+
+.event-icon.assignment {
+  color: #f5a623;
+}
+
+.event-icon.exam {
+  color: #e74c3c;
+}
+
+.event-icon.meeting {
+  color: #9b59b6;
+}
+
+.event-icon.other {
+  color: #7f8c8d;
+}
+
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.event-time,
+.event-location,
+.event-course {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .event-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .event-type {
+    align-self: flex-start;
+  }
+  
+  .event-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

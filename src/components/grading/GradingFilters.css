@@ -1,0 +1,95 @@
+/* GradingFilters Component Styles */
+
+.grading-filters {
+  width: 300px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.filters-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.9rem;
+  color: #4a90e2;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.btn-text:hover {
+  color: #3a80d2;
+  text-decoration: underline;
+}
+
+.filters-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.filter-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.search-input-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .grading-filters {
+    width: 100%;
+  }
+  
+  .filters-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}

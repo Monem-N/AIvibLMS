@@ -1,0 +1,312 @@
+/* ActivityContent Component Styles */
+
+.activity-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.content-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.content-text p {
+  margin-bottom: 1rem;
+}
+
+.content-text h1,
+.content-text h2,
+.content-text h3,
+.content-text h4,
+.content-text h5,
+.content-text h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.content-text ul,
+.content-text ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.content-text li {
+  margin-bottom: 0.5rem;
+}
+
+.content-text a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.content-text a:hover {
+  text-decoration: underline;
+}
+
+.content-text img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.content-text blockquote {
+  border-left: 4px solid #f0f0f0;
+  padding-left: 1rem;
+  margin-left: 0;
+  color: #666;
+}
+
+.content-text code {
+  background-color: #f5f5f5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.content-text pre {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.content-text pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.activity-attachments {
+  margin-top: 2rem;
+}
+
+.attachments-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+.attachments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.attachment-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.attachment-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.attachment-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.file-icon.image {
+  color: #9b59b6;
+}
+
+.file-icon.video {
+  color: #e74c3c;
+}
+
+.file-icon.audio {
+  color: #3498db;
+}
+
+.file-icon.pdf {
+  color: #e74c3c;
+}
+
+.file-icon.document {
+  color: #3498db;
+}
+
+.attachment-info {
+  flex: 1;
+  min-width: 0; /* Allows text truncation to work */
+}
+
+.attachment-name {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.attachment-size {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.attachment-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  transition: color 0.2s ease;
+}
+
+.attachment-item:hover .attachment-download {
+  color: #4a90e2;
+}
+
+/* Quiz specific styles */
+.quiz-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.quiz-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.info-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.quiz-start {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Discussion specific styles */
+.discussion-forum {
+  margin-top: 2rem;
+}
+
+.discussion-empty {
+  padding: 2rem;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.discussion-empty p {
+  color: #666;
+  margin: 0;
+}
+
+.discussion-compose {
+  margin-top: 1.5rem;
+}
+
+.compose-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 0.75rem 0;
+}
+
+.compose-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.compose-textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.compose-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #3a80d2;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .activity-content {
+    padding: 1rem;
+  }
+  
+  .quiz-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,235 @@
+/* SubmissionContent Component Styles */
+
+.submission-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+.content-section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.submission-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.info-label {
+  font-weight: 500;
+  color: #666;
+}
+
+.info-value {
+  color: #333;
+}
+
+.submission-text {
+  margin-bottom: 1.5rem;
+}
+
+.text-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.submission-attachments {
+  margin-bottom: 1.5rem;
+}
+
+.attachments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.attachment-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.attachment-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.attachment-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.file-icon.image {
+  color: #9b59b6;
+}
+
+.file-icon.video {
+  color: #e74c3c;
+}
+
+.file-icon.audio {
+  color: #3498db;
+}
+
+.file-icon.pdf {
+  color: #e74c3c;
+}
+
+.file-icon.document {
+  color: #3498db;
+}
+
+.attachment-info {
+  flex: 1;
+  min-width: 0; /* Allows text truncation to work */
+}
+
+.attachment-name {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.attachment-size {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.attachment-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  transition: color 0.2s ease;
+}
+
+.attachment-item:hover .attachment-download {
+  color: #4a90e2;
+}
+
+.activity-instructions {
+  margin-bottom: 2rem;
+}
+
+.instructions-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.previous-grade {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.grade-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.grade-score {
+  display: flex;
+  align-items: baseline;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.score-separator {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #666;
+  margin: 0 0.25rem;
+}
+
+.score-max {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.score-percentage {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  margin-left: 0.5rem;
+}
+
+.graded-by,
+.graded-date {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.grade-feedback {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.feedback-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.feedback-content {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .submission-content {
+    padding: 1rem;
+  }
+  
+  .submission-info {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

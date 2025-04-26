@@ -1,0 +1,82 @@
+/* CourseTabs Component Styles */
+
+.course-tabs {
+  margin-top: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.tabs-container {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-item:hover {
+  color: #4a90e2;
+  background-color: #f9f9f9;
+}
+
+.tab-item.active {
+  color: #4a90e2;
+  border-bottom-color: #4a90e2;
+}
+
+.tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.tab-item.active .tab-count {
+  background-color: #e8f1fb;
+  color: #4a90e2;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .tabs-container {
+    flex-wrap: wrap;
+  }
+  
+  .tab-item {
+    flex: 1 0 50%;
+    padding: 0.75rem;
+  }
+  
+  .tab-label {
+    font-size: 0.9rem;
+  }
+}

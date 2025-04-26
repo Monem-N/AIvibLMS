@@ -1,0 +1,199 @@
+/* Dashboard Widgets styles */
+
+/* Common widget styles */
+.widget-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.widget-list-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.widget-list-item:last-child {
+  border-bottom: none;
+}
+
+.widget-empty {
+  text-align: center;
+  color: #999;
+  padding: 20px 0;
+}
+
+.widget-footer {
+  margin-top: 16px;
+  text-align: center;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+}
+
+.widget-link {
+  color: #2196f3;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.widget-link:hover {
+  color: #0d47a1;
+  text-decoration: underline;
+}
+
+/* Activity Widget */
+.activity-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-title {
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+.activity-title:hover {
+  color: #2196f3;
+}
+
+.activity-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.activity-date {
+  font-size: 12px;
+  color: #666;
+  margin-right: 8px;
+}
+
+.activity-type {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.activity-type-assignment {
+  background-color: #bbdefb;
+  color: #0d47a1;
+}
+
+.activity-type-quiz {
+  background-color: #ffecb3;
+  color: #ff6f00;
+}
+
+.activity-type-discussion {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+}
+
+.activity-description {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Subject Widget */
+.subject-item {
+  display: flex;
+  flex-direction: column;
+  border-left: 3px solid #ddd;
+  padding-left: 12px;
+  margin-left: -16px;
+}
+
+.subject-title {
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+.subject-title:hover {
+  color: #2196f3;
+}
+
+.subject-teachers {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.teacher-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  fill: #666;
+}
+
+.subject-description {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Messages Widget */
+.message-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.message-sender {
+  font-weight: 500;
+  color: #333;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #999;
+}
+
+.message-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.message-tag {
+  font-size: 12px;
+  color: #2196f3;
+  margin-right: 8px;
+}
+
+.message-content {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

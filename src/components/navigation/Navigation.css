@@ -1,0 +1,160 @@
+/* Navigation component styles */
+
+.navigation {
+  position: relative;
+}
+
+/* Sidenav */
+.sidenav {
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidenav .mobile-close {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sidenav .mobile-nav-items {
+  display: none;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.sidenav .mobile-nav-item {
+  padding: 15px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sidenav .mobile-nav-item .icon {
+  width: 20px;
+  height: 20px;
+  fill: #666;
+}
+
+.sidenav .nav-scroll {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sidenav .nav-items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav items */
+.nav-item {
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  font-size: 14px;
+  position: relative;
+}
+
+.nav-item a {
+  text-decoration: none;
+}
+
+.nav-item .item-icon {
+  margin-left: 10px;
+  width: 16px;
+  height: 16px;
+  fill: #666;
+}
+
+.nav-item .title {
+  color: #666;
+  text-align: left;
+  display: inline-block;
+  width: calc(100% - 30px);
+  padding: 15px 10px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.nav-item .title:hover {
+  transform: scale(1.03);
+}
+
+.nav-item:hover {
+  background-color: #f5f5f5;
+}
+
+.nav-item.has-children .arrow {
+  transition: all 0.2s ease;
+  display: inline;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 15px;
+  height: 15px;
+  margin-top: 3px;
+  fill: #666;
+  transform: rotate(90deg);
+}
+
+.nav-item.opened {
+  background-color: initial;
+}
+
+.nav-item.opened.has-children .arrow {
+  transform: rotate(-90deg);
+}
+
+/* Nav children */
+.nav-children {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.nav-item.opened .nav-children {
+  max-height: 1000px;
+}
+
+.nav-child {
+  padding: 0;
+}
+
+.nav-child a {
+  display: block;
+  padding: 10px 10px 10px 35px;
+  color: #666;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.nav-child a:hover {
+  background-color: #f5f5f5;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .sidenav .mobile-close {
+    display: block;
+  }
+  
+  .sidenav .mobile-nav-items {
+    display: table;
+  }
+  
+  .sidenav .nav-scroll {
+    height: calc(100% - 50px);
+  }
+  
+  .nav-item.has-children .arrow {
+    right: 20px;
+  }
+}

@@ -1,0 +1,145 @@
+/* ProgressWidget Component Styles */
+
+.progress-widget {
+  height: 100%;
+}
+
+.progress-overview {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.progress-chart {
+  flex: 0 0 120px;
+}
+
+.circular-chart {
+  width: 100%;
+  height: auto;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke: #27ae60;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.percentage {
+  fill: #333;
+  font-size: 0.5em;
+  text-anchor: middle;
+  font-weight: 600;
+}
+
+.progress-stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+.course-progress-list {
+  margin-top: 1.5rem;
+}
+
+.course-progress-item {
+  margin-bottom: 1rem;
+}
+
+.course-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.course-name {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.progress-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #27ae60;
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #27ae60;
+  border-radius: 3px;
+}
+
+.courses-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+.courses-empty p {
+  color: #666;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .progress-overview {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .progress-chart {
+    flex: 0 0 100px;
+  }
+  
+  .progress-stats {
+    width: 100%;
+  }
+}

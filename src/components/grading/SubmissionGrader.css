@@ -1,0 +1,95 @@
+/* SubmissionGrader Component Styles */
+
+.submission-grader-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.submission-grader-content {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.submission-content-container {
+  flex: 2;
+  min-width: 0; /* Allows text truncation to work */
+}
+
+.grading-form-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.submission-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.submission-not-found h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+.submission-not-found p {
+  color: #666;
+  margin: 0 0 1.5rem 0;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #3a80d2;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .submission-grader-content {
+    flex-direction: column;
+  }
+  
+  .grading-form-container {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .submission-grader-container {
+    padding: 1rem;
+  }
+}
