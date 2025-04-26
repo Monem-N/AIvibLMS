@@ -1,6 +1,6 @@
-# My New Project
+# AIvibLMS
 
-This is my first GitHub repository. I'm learning how to use Git and GitHub!
+This is a Learning Management System (LMS) project. I'm developing this as part of my work with AIvib.
 
 ## Getting Started
 
