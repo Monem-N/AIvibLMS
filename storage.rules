@@ -1,0 +1,85 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // For testing purposes, allow all operations on test files
+    match /test/{allPaths=**} {
+      allow read, write: if true;
+    }
+
+    // Helper functions for role-based access control
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function hasRole(role) {
+      return isSignedIn() && request.auth.token.role == role;
+    }
+
+    function isAdmin() {
+      return hasRole('admin');
+    }
+
+    function isInstructor() {
+      return hasRole('instructor');
+    }
+
+    function isAssistant() {
+      return hasRole('assistant');
+    }
+
+    function isModerator() {
+      return hasRole('moderator');
+    }
+
+    function isStudent() {
+      return hasRole('student');
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function hasPermission(permission) {
+      return isSignedIn() && permission in request.auth.token.permissions;
+    }
+
+    // Course materials (accessible to all authenticated users)
+    match /course-materials/{courseId}/{allPaths=**} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('write:content'));
+    }
+
+    // User profile images
+    match /profile-images/{userId} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn() && (isOwner(userId) || isAdmin());
+    }
+
+    // Assignment submissions
+    match /submissions/{submissionId}/{allPaths=**} {
+      allow read: if isSignedIn() && (
+        isAdmin() ||
+        isInstructor() ||
+        hasPermission('grade:assignments') ||
+        resource.metadata.userId == request.auth.uid
+      );
+      allow create: if isSignedIn();
+      allow update, delete: if isSignedIn() && (
+        isAdmin() ||
+        (resource.metadata.userId == request.auth.uid && !resource.metadata.submitted)
+      );
+    }
+
+    // Course resources
+    match /resources/{courseId}/{allPaths=**} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('write:content'));
+    }
+
+    // Default deny
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

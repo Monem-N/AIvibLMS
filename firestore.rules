@@ -1,0 +1,159 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // For testing purposes, allow all operations
+    match /test/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Helper functions for role-based access control
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function hasRole(role) {
+      return isSignedIn() && request.auth.token.role == role;
+    }
+
+    function isAdmin() {
+      return hasRole('admin');
+    }
+
+    function isInstructor() {
+      return hasRole('instructor');
+    }
+
+    function isAssistant() {
+      return hasRole('assistant');
+    }
+
+    function isModerator() {
+      return hasRole('moderator');
+    }
+
+    function isStudent() {
+      return hasRole('student');
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function hasPermission(permission) {
+      return isSignedIn() && permission in request.auth.token.permissions;
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read: if isSignedIn() && (isOwner(userId) || isAdmin());
+      allow create: if isSignedIn();
+      allow update: if isSignedIn() && (isOwner(userId) || isAdmin());
+      allow delete: if isAdmin();
+    }
+
+    // Courses collection
+    match /courses/{courseId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('create:courses'));
+      allow update: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('write:courses'));
+      allow delete: if isSignedIn() && (isAdmin() || hasPermission('manage:courses'));
+    }
+
+    // Activities collection
+    match /activities/{activityId} {
+      allow read: if isSignedIn();
+      allow create, update: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('write:content'));
+      allow delete: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('manage:content'));
+    }
+
+    // Modules collection
+    match /modules/{moduleId} {
+      allow read: if isSignedIn();
+      allow create, update: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('write:content'));
+      allow delete: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('manage:content'));
+    }
+
+    // Enrollments collection
+    match /enrollments/{enrollmentId} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('manage:courses'));
+    }
+
+    // Assignments collection
+    match /assignments/{assignmentId} {
+      allow read: if isSignedIn();
+      allow create, update: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('write:content'));
+      allow delete: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('manage:content'));
+    }
+
+    // Submissions collection
+    match /submissions/{submissionId} {
+      allow read: if isSignedIn() && (
+        isAdmin() ||
+        isInstructor() ||
+        hasPermission('grade:assignments') ||
+        (isStudent() && resource.data.userId == request.auth.uid)
+      );
+      allow create: if isSignedIn();
+      allow update: if isSignedIn() && (
+        isAdmin() ||
+        isInstructor() ||
+        hasPermission('grade:assignments') ||
+        (isStudent() && resource.data.userId == request.auth.uid && !resource.data.submitted)
+      );
+      allow delete: if isAdmin();
+    }
+
+    // Grades collection
+    match /grades/{gradeId} {
+      allow read: if isSignedIn() && (
+        isAdmin() ||
+        isInstructor() ||
+        hasPermission('grade:assignments') ||
+        (isStudent() && resource.data.userId == request.auth.uid)
+      );
+      allow create, update: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('grade:assignments'));
+      allow delete: if isAdmin();
+    }
+
+    // Announcements collection
+    match /announcements/{announcementId} {
+      allow read: if isSignedIn();
+      allow create, update: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('write:content'));
+      allow delete: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('manage:content'));
+    }
+
+    // Pages collection
+    match /pages/{pageId} {
+      allow read: if isSignedIn();
+      allow create, update: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('write:content'));
+      allow delete: if isSignedIn() && (isAdmin() || isInstructor() || hasPermission('manage:content'));
+    }
+
+    // Messages collection
+    match /messages/{messageId} {
+      allow read: if isSignedIn() && (
+        isAdmin() ||
+        resource.data.senderId == request.auth.uid ||
+        resource.data.recipientId == request.auth.uid
+      );
+      allow create: if isSignedIn();
+      allow update: if isSignedIn() && (
+        isAdmin() ||
+        resource.data.senderId == request.auth.uid ||
+        resource.data.recipientId == request.auth.uid
+      );
+      allow delete: if isSignedIn() && (
+        isAdmin() ||
+        resource.data.senderId == request.auth.uid ||
+        resource.data.recipientId == request.auth.uid
+      );
+    }
+
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,15 +1,16 @@
 # Architecture Documentation
 
-This directory contains architecture documentation for the Hypatia Modern LMS platform.
+This directory contains architecture documentation for the AIvibLMS (Hypatia Modern LMS) platform.
 
 ## Architecture Overview
 
-The Hypatia Modern LMS is built using a component-based architecture with the following key characteristics:
+AIvibLMS is built using a component-based architecture with the following key characteristics:
 
 - **Frontend**: React 18+ with functional components and hooks
 - **State Management**: Redux Toolkit with Context API for local state
-- **API Layer**: Service abstraction over Firebase
+- **API Layer**: Service abstraction over Firebase and Supabase
 - **Data Storage**: Firestore/Firebase Realtime Database
+- **File Storage**: Supabase Storage for user-generated content
 - **Authentication**: Firebase Authentication
 - **Hosting**: Firebase Hosting
 
@@ -18,6 +19,8 @@ The Hypatia Modern LMS is built using a component-based architecture with the fo
 - `/decisions` - Architecture Decision Records (ADRs)
 - `/diagrams` - Architecture diagrams and visual representations
 - `/specifications` - Detailed specifications for components and services
+- `architecture-overview.md` - Comprehensive overview of the system architecture
+- `file-storage-strategy.md` - Detailed documentation of the hybrid file storage approach
 
 ## Architecture Principles
 
@@ -40,6 +43,7 @@ The Hypatia Modern LMS is built using a component-based architecture with the fo
 | ADR-006 | Data Storage Strategy | Proposed | 2023-07-21 |
 | ADR-007 | Authentication and Authorization | Not Started | - |
 | ADR-008 | Deployment and DevOps | Not Started | - |
+| ADR-0001 | Hybrid Firebase/Supabase Approach | Accepted | 2023-05-01 |
 
 ## Architecture Decision Records (ADRs)
 
@@ -55,7 +59,8 @@ Architecture decisions are documented using ADRs. See the `/decisions` directory
 | UI Component Library | Proposed | Material-UI (MUI) v5+ |
 | Build System | Proposed | Vite for development and production builds |
 | API Layer | Proposed | Service-based abstraction with RTK Query |
-| Data Storage | Proposed | Firestore with migration from Realtime Database |
+| Data Storage | Decided | Firestore with migration from Realtime Database |
+| File Storage | Decided | Supabase Storage for user-generated content |
 | Authentication | Proposed | Firebase Authentication with custom claims and RBAC |
 | Deployment & DevOps | Proposed | GitHub Actions, Firebase Hosting, Terraform |
 | User Experience | Completed | Dashboard, Profiles, Forums, Notifications documented |

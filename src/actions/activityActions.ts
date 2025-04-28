@@ -231,8 +231,8 @@ export const fetchActivity = (
       const submissionsSnapshot = await getDocs(submissionsQuery);
       
       const submissions = submissionsSnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
+        ...(doc.data() as Submission),
+        id: doc.id
       }));
       
       // Sort submissions by date (newest first)
@@ -308,7 +308,14 @@ export const submitActivity = (
       const storage = getStorage();
       
       // Upload files if any
-      const attachments = [];
+      const attachments: {
+        id: string;
+        name: string;
+        type: string;
+        url: string;
+        size: number;
+        uploadedAt: string;
+      }[] = [];
       
       if (files.length > 0) {
         for (const file of files) {

@@ -1,0 +1,144 @@
+/* TiptapEditor.css */
+
+.tiptap-editor {
+  position: relative;
+}
+
+.tiptap-content {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.tiptap-toolbar {
+  padding: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f5f5f5;
+}
+
+.tiptap-toolbar-group {
+  display: flex;
+  margin-right: 8px;
+}
+
+.tiptap-divider {
+  width: 1px;
+  height: 24px;
+  background-color: #e0e0e0;
+  margin: 0 8px;
+}
+
+/* Editor content styles */
+.ProseMirror {
+  padding: 16px;
+  min-height: 300px;
+  outline: none;
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
+
+.ProseMirror p {
+  margin: 0 0 16px 0;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6 {
+  margin: 24px 0 16px 0;
+}
+
+.ProseMirror h1 {
+  font-size: 2em;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5em;
+}
+
+.ProseMirror h3 {
+  font-size: 1.17em;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding: 0 0 0 24px;
+  margin: 16px 0;
+}
+
+.ProseMirror blockquote {
+  border-left: 4px solid #ddd;
+  padding: 0 0 0 16px;
+  margin: 16px 0;
+}
+
+.ProseMirror code {
+  background-color: #f5f5f5;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.ProseMirror pre {
+  background-color: #f5f5f5;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+.ProseMirror pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ProseMirror a {
+  color: #1976d2;
+  text-decoration: underline;
+}
+
+/* Placeholder */
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #adb5bd;
+  pointer-events: none;
+  height: 0;
+}
+
+/* Bubble menu */
+.bubble-menu {
+  display: flex;
+  background-color: white;
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bubble-menu button {
+  margin: 0 2px;
+}
+
+/* Floating menu */
+.floating-menu {
+  display: flex;
+  background-color: white;
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.floating-menu button {
+  margin: 0 2px;
+}

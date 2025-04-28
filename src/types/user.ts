@@ -11,6 +11,7 @@ export interface User {
   emailVerified: boolean;
   displayName?: string | null;
   photoURL?: string | null;
+  role?: UserRole;
   info?: UserInfo;
   metadata?: UserMetadata;
 }

@@ -1,6 +1,6 @@
-# Hypatia Modern LMS
+# AIvibLMS (Hypatia Modern LMS)
 
-A modern learning management system built with React, TypeScript, and Firebase.
+A modern learning management system built with React, TypeScript, Firebase, and Supabase.
 
 ## Project Overview
 
@@ -89,9 +89,9 @@ The modernized Hypatia LMS will be built using the following technologies:
 
 - Firebase Authentication for user management
 - Firestore for data storage
-- Firebase Storage for file storage
 - Firebase Functions for serverless backend logic
 - Firebase Hosting for deployment
+- Supabase Storage for file storage (images, audio, video, documents)
 
 ### DevOps
 

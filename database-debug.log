@@ -1,0 +1,8 @@
+21:04:56.496 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+21:04:56.594 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+21:05:08.661 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - aivib-lms-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 78ms, init: 0ms
+21:05:08.752 [NamespaceSystem-blocking-namespace-operation-dispatcher-6] INFO com.firebase.core.namespace.StateManager - Namespace aivib-lms-default-rtdb status Active to Active
+21:47:07.122 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
+21:47:07.138 [NamespaceSystem-akka.actor.default-dispatcher-12] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: aivib-lms-default-rtdb
+21:47:07.148 [NamespaceSystem-akka.actor.default-dispatcher-11] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for aivib-lms-default-rtdb
+21:47:07.151 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.

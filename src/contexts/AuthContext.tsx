@@ -1,12 +1,12 @@
 /**
  * AuthContext
- * 
+ *
  * Context for authentication functionality.
  * Provides authentication state and methods to components.
  */
 
 import React, { createContext, useContext, ReactNode } from 'react';
-import { useAuth } from '../hooks/useAuth';
+import { useHybridAuth } from '../hooks/useHybridAuth';
 import { User, UserInfo } from '../types/user';
 
 interface AuthContextType {
@@ -30,8 +30,8 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const auth = useAuth();
-  
+  const auth = useHybridAuth();
+
   return (
     <AuthContext.Provider value={auth}>
       {children}
@@ -41,10 +41,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
 export const useAuthContext = (): AuthContextType => {
   const context = useContext(AuthContext);
-  
+
   if (context === undefined) {
     throw new Error('useAuthContext must be used within an AuthProvider');
   }
-  
+
   return context;
 };

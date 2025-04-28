@@ -1,0 +1,74 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "users": {
+      "$uid": {
+        ".read": "auth.uid == $uid || root.child('users').child(auth.uid).child('info/level').val() >= 5",
+        ".write": "auth.uid == $uid || root.child('users').child(auth.uid).child('info/level').val() >= 5"
+      }
+    },
+    "courses": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('info/level').val() >= 4"
+    },
+    "activities": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('info/level').val() >= 4"
+    },
+    "modules": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('info/level').val() >= 4"
+    },
+    "subjects": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('info/level').val() >= 4"
+    },
+    "posts": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('info/level').val() >= 3"
+    },
+    "pages": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('info/level').val() >= 4"
+    },
+    "files": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('info/level').val() >= 3"
+    },
+    "enrollments": {
+      ".read": "auth != null",
+      "$courseId": {
+        ".write": "root.child('users').child(auth.uid).child('info/level').val() >= 4 || root.child('courses').child($courseId).child('instructors').hasChild(auth.uid)"
+      }
+    },
+    "assignments": {
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('info/level').val() >= 4"
+    },
+    "submissions": {
+      "$submissionId": {
+        ".read": "auth != null && (auth.uid == data.child('userId').val() || root.child('users').child(auth.uid).child('info/level').val() >= 4 || root.child('courses').child(data.child('courseId').val()).child('instructors').hasChild(auth.uid))",
+        ".write": "auth != null && (auth.uid == data.child('userId').val() || root.child('users').child(auth.uid).child('info/level').val() >= 4 || root.child('courses').child(data.child('courseId').val()).child('instructors').hasChild(auth.uid))"
+      }
+    },
+    "grades": {
+      "$gradeId": {
+        ".read": "auth != null && (auth.uid == data.child('userId').val() || root.child('users').child(auth.uid).child('info/level').val() >= 4 || root.child('courses').child(data.child('courseId').val()).child('instructors').hasChild(auth.uid))",
+        ".write": "auth != null && (root.child('users').child(auth.uid).child('info/level').val() >= 4 || root.child('courses').child(data.child('courseId').val()).child('instructors').hasChild(auth.uid))"
+      }
+    },
+    "notifications": {
+      "$uid": {
+        ".read": "auth.uid == $uid",
+        ".write": "auth.uid == $uid || root.child('users').child(auth.uid).child('info/level').val() >= 5"
+      }
+    },
+    "messages": {
+      "$messageId": {
+        ".read": "auth != null && (auth.uid == data.child('senderId').val() || auth.uid == data.child('recipientId').val() || root.child('users').child(auth.uid).child('info/level').val() >= 5)",
+        ".write": "auth != null && (auth.uid == data.child('senderId').val() || root.child('users').child(auth.uid).child('info/level').val() >= 5)"
+      }
+    }
+  }
+}

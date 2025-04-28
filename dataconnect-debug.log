@@ -1,0 +1,13 @@
+I0426 21:03:56.234157   42765 load.go:37] Reloading schema and connectors...
+I0426 21:03:56.263956   42765 control.go:59] [/emulator/aiviblms 7265] UpdateResources(): done
+Schema: sources: schema/schema.gql [2088B] 
+Connector "default": sources: connector/mutations.gql [1233B] connector/queries.gql [1802B] 
+I0426 21:03:56.278852   42765 codegen.go:82] [connector "default" javascriptSdk] Generating sources into "/Users/monemnaifer/AIvibLMS/dataconnect-generated/js/default-connector"
+I0426 21:03:56.291685   42765 collector.go:107] schema extensions wrote into "/Users/monemnaifer/AIvibLMS/dataconnect/.dataconnect/schema"
+Generated sources: prelude.gql [66094B] 
+I0426 21:03:56.294942   42765 collector.go:107] connector "default" javascriptSdk wrote into "/Users/monemnaifer/AIvibLMS/dataconnect-generated/js/default-connector"
+Generated sources: package.json [895B] README.md [2800B] react/esm/package.json [17B] react/README.md [5443B] index.d.ts [246B] esm/index.esm.js [111B] esm/package.json [17B] react/index.cjs.js [0B] react/esm/index.esm.js [0B] index.cjs.js [147B] react/index.d.ts [228B] react/package.json [468B] 
+I0426 21:03:56.317609   42765 installsdk.go:48] Package @firebasegen/default-connector is already installed. Skipping installation
+I0426 21:03:56.317731   42765 load.go:115] Finished reloading
+I0426 21:03:56.320701   42765 dev.go:95] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+I0426 21:03:56.321630   42765 dev.go:95] Listening on address (HTTP + gRPC): [::1]:9399

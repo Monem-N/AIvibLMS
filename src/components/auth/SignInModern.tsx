@@ -1,16 +1,16 @@
 /**
  * SignInModern Component
- * 
+ *
  * Modern sign in component using functional components and hooks.
  */
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuthContext } from '../../contexts/AuthContext';
 import { useNotification } from '../../hooks/useNotification';
 
 // Import CSS
-import './SignIn.css';
+import './Auth.css';
 
 interface SignInProps {
   onSuccess?: () => void;
@@ -22,34 +22,34 @@ const SignInModern: React.FC<SignInProps> = ({ onSuccess, onCancel }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  
+
   // Hooks
-  const { signIn } = useAuth();
+  const { signIn } = useAuthContext();
   const { showError } = useNotification();
-  
+
   /**
    * Handle form submission
    * @param e Form event
    */
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     // Validate form
     if (!email || !password) {
       showError('Please enter both email and password');
       return;
     }
-    
+
     // Submit form
     setIsSubmitting(true);
-    
+
     try {
       await signIn(email, password);
-      
+
       // Clear form
       setEmail('');
       setPassword('');
-      
+
       // Call success callback
       if (onSuccess) {
         onSuccess();
@@ -61,7 +61,7 @@ const SignInModern: React.FC<SignInProps> = ({ onSuccess, onCancel }) => {
       setIsSubmitting(false);
     }
   };
-  
+
   /**
    * Handle cancel button click
    */
@@ -69,21 +69,22 @@ const SignInModern: React.FC<SignInProps> = ({ onSuccess, onCancel }) => {
     // Clear form
     setEmail('');
     setPassword('');
-    
+
     // Call cancel callback
     if (onCancel) {
       onCancel();
     }
   };
-  
+
   return (
-    <div className="auth-container signin-container">
-      <h2 className="auth-title">Sign In</h2>
-      
-      <form className="auth-form signin-form" onSubmit={handleSubmit} role="form">
+    <div className="auth-form">
+      <h2>Sign In</h2>
+
+      <form onSubmit={handleSubmit} role="form">
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+          <label className="form-label" htmlFor="email">Email</label>
           <input
+            className="form-control"
             type="email"
             id="email"
             name="email"
@@ -93,10 +94,11 @@ const SignInModern: React.FC<SignInProps> = ({ onSuccess, onCancel }) => {
             required
           />
         </div>
-        
+
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label className="form-label" htmlFor="password">Password</label>
           <input
+            className="form-control"
             type="password"
             id="password"
             name="password"
@@ -106,7 +108,7 @@ const SignInModern: React.FC<SignInProps> = ({ onSuccess, onCancel }) => {
             required
           />
         </div>
-        
+
         <div className="form-actions">
           <button
             type="submit"
@@ -115,7 +117,7 @@ const SignInModern: React.FC<SignInProps> = ({ onSuccess, onCancel }) => {
           >
             {isSubmitting ? 'Signing in...' : 'Sign in'}
           </button>
-          
+
           <button
             type="button"
             className="btn btn-secondary"
@@ -125,15 +127,15 @@ const SignInModern: React.FC<SignInProps> = ({ onSuccess, onCancel }) => {
             Cancel
           </button>
         </div>
-        
-        <div className="form-links">
-          <Link to="/forgot-password" className="forgot-password-link">
+
+        <div className="form-footer">
+          <Link to="/forgot-password" className="form-link">
             Forgot password?
           </Link>
-          
-          <div className="signup-link">
+
+          <div className="form-text">
             Don't have an account?{' '}
-            <Link to="/signup">Sign up</Link>
+            <Link to="/signup" className="form-link">Sign up</Link>
           </div>
         </div>
       </form>

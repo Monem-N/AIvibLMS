@@ -2,25 +2,25 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import md5 from 'md5';
+import { Typography } from '@mui/material';
 import { setUser, setPanel } from '../../actions/actions';
 import Navigation from './Navigation';
-import Signup from '../auth/Signup';
-import Signin from '../auth/Signin';
+import SignUpModern from '../auth/SignUpModern';
+import SignInModern from '../auth/SignInModern';
 import Icon from '../../common/Icon';
 import { TopNavProps } from '../../types/navigation';
 import { RootState } from '../../types/state';
 
-// Import SVG icons
-import Logo from '../../../assets/svg/logo.svg';
-import LogoWording from '../../../assets/svg/logo-wording.svg';
-import Avatar from '../../../assets/svg/avatar.svg';
-import Trophy from '../../../assets/svg/trophy.svg';
-import Calendar from '../../../assets/svg/calendar.svg';
-import Help from '../../../assets/svg/question.svg';
-import Search from '../../../assets/svg/search.svg';
-import Close from '../../../assets/svg/x.svg';
-import Logout from '../../../assets/svg/logout.svg';
-import Chat from '../../../assets/svg/chat.svg';
+// Import Material-UI icons
+import SchoolIcon from '@mui/icons-material/School'; // Logo replacement
+import AvatarIcon from '@mui/icons-material/AccountCircle';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'; // Trophy
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import HelpIcon from '@mui/icons-material/Help';
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
+import LogoutIcon from '@mui/icons-material/Logout';
+import ChatIcon from '@mui/icons-material/Chat';
 
 // Import CSS
 import './TopNav.css';
@@ -32,17 +32,17 @@ import './TopNav.css';
 const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
   const dispatch = useDispatch();
   const { user, panel } = useSelector((state: RootState) => state.mainReducer);
-  
+
   // State
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [isNavigating, setIsNavigating] = useState<boolean>(false);
-  
+
   // Refs
   const sidenavRef = useRef<HTMLDivElement>(null);
   const searchPanelRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLButtonElement>(null);
   const navIconRef = useRef<HTMLButtonElement>(null);
-  
+
   // Effect to handle body scroll when overlay is shown
   useEffect(() => {
     if (isNavigating || isSearching) {
@@ -50,13 +50,13 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
     } else {
       document.body.style.overflow = 'auto';
     }
-    
+
     // Cleanup function
     return () => {
       document.body.style.overflow = 'auto';
     };
   }, [isNavigating, isSearching]);
-  
+
   /**
    * Toggle navigation menu
    */
@@ -67,7 +67,7 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
       openNav();
     }
   };
-  
+
   /**
    * Open navigation menu
    */
@@ -77,29 +77,29 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
       searchPanelRef.current.classList.remove('opened');
       searchPanelRef.current.classList.add('closed');
     }
-    
+
     // Show overlay with fade-in animation
     if (overlayRef.current) {
       overlayRef.current.style.display = 'block';
       overlayRef.current.classList.add('fade-in');
     }
-    
+
     // Open sidenav
     if (sidenavRef.current) {
       sidenavRef.current.classList.add('opened');
       sidenavRef.current.classList.remove('closed');
     }
-    
+
     // Update nav icon
     if (navIconRef.current) {
       navIconRef.current.classList.add('opened');
     }
-    
+
     // Update state
     setIsSearching(false);
     setIsNavigating(true);
   };
-  
+
   /**
    * Close navigation menu
    */
@@ -109,22 +109,22 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
       sidenavRef.current.classList.remove('opened');
       sidenavRef.current.classList.add('closed');
     }
-    
+
     // Hide overlay
     if (overlayRef.current) {
       overlayRef.current.style.display = 'none';
       overlayRef.current.classList.remove('fade-in');
     }
-    
+
     // Update nav icon
     if (navIconRef.current) {
       navIconRef.current.classList.remove('opened');
     }
-    
+
     // Update state
     setIsNavigating(false);
   };
-  
+
   /**
    * Toggle search panel
    */
@@ -135,7 +135,7 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
       openSearch();
     }
   };
-  
+
   /**
    * Open search panel
    */
@@ -145,35 +145,35 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
       sidenavRef.current.classList.remove('opened');
       sidenavRef.current.classList.add('closed');
     }
-    
+
     // Open search panel
     if (searchPanelRef.current) {
       searchPanelRef.current.classList.add('opened');
       searchPanelRef.current.classList.remove('closed');
     }
-    
+
     // Update nav icon
     if (navIconRef.current) {
       navIconRef.current.classList.remove('opened');
     }
-    
+
     // Show overlay with fade-in animation
     if (overlayRef.current) {
       overlayRef.current.style.display = 'block';
       overlayRef.current.classList.add('fade-in');
     }
-    
+
     // Focus search input
     const searchInput = searchPanelRef.current?.querySelector('.search-input') as HTMLInputElement;
     if (searchInput) {
       searchInput.focus();
     }
-    
+
     // Update state
     setIsSearching(true);
     setIsNavigating(false);
   };
-  
+
   /**
    * Close search panel
    */
@@ -183,17 +183,17 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
       searchPanelRef.current.classList.remove('opened');
       searchPanelRef.current.classList.add('closed');
     }
-    
+
     // Hide overlay
     if (overlayRef.current) {
       overlayRef.current.style.display = 'none';
       overlayRef.current.classList.remove('fade-in');
     }
-    
+
     // Update state
     setIsSearching(false);
   };
-  
+
   /**
    * Change active panel
    * @param {string} panelName - Name of the panel to activate
@@ -201,19 +201,19 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
   const changePanel = (panelName: string): void => {
     closeNav();
     closeSearch();
-    
+
     if (panel === panelName) {
       dispatch(setPanel(''));
     } else {
       dispatch(setPanel(panelName));
     }
   };
-  
+
   return (
     <section className={`top-nav ${className}`}>
       <div className="top-nav-bar">
-        <button 
-          className="top-nav-item nav-icon" 
+        <button
+          className="top-nav-item nav-icon"
           ref={navIconRef}
           onClick={toggleNav}
         >
@@ -222,21 +222,21 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
           <span />
           <span />
         </button>
-        
+
         <button className="top-nav-item" onClick={toggleSearch}>
           {isSearching ? (
-            <Icon glyph={Close} className="icon close-search" />
+            <CloseIcon className="icon close-search" />
           ) : (
-            <Icon glyph={Search} className="icon search" />
+            <SearchIcon className="icon search" />
           )}
         </button>
 
         {user && (
           <button className="top-nav-item" onClick={() => changePanel('calendar')}>
             {panel === 'calendar' ? (
-              <Icon glyph={Close} />
+              <CloseIcon />
             ) : (
-              <Icon glyph={Calendar} className="icon calendar" />
+              <CalendarTodayIcon className="icon calendar" />
             )}
           </button>
         )}
@@ -244,9 +244,9 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
         {user && (
           <button className="top-nav-item" onClick={() => changePanel('grades')}>
             {panel === 'grades' ? (
-              <Icon glyph={Close} />
+              <CloseIcon />
             ) : (
-              <Icon glyph={Trophy} className="icon trophy" />
+              <EmojiEventsIcon className="icon trophy" />
             )}
           </button>
         )}
@@ -254,16 +254,16 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
         {user && (
           <button className="top-nav-item" onClick={() => changePanel('help')}>
             {panel === 'help' ? (
-              <Icon glyph={Close} />
+              <CloseIcon />
             ) : (
-              <Icon glyph={Help} className="icon info" />
+              <HelpIcon className="icon info" />
             )}
           </button>
         )}
 
         <Link to="/" className="logo">
-          <Icon glyph={Logo} />
-          <Icon glyph={LogoWording} className="icon logo-wording" />
+          <SchoolIcon />
+          <Typography variant="h6" className="icon logo-wording">AIvibLMS</Typography>
         </Link>
 
         {!user || (user && !user.emailVerified) ? (
@@ -271,11 +271,11 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
             <div className="lang">EN</div>
             <div className="user-controls-cta sign-up-cta">
               <button>Sign up</button>
-              <Signup />
+              <SignUpModern />
             </div>
             <div className="user-controls-cta sign-in-cta">
               <button>Sign in</button>
-              <Signin />
+              <SignInModern />
             </div>
           </div>
         ) : (
@@ -283,9 +283,9 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
             <div className="lang">EN</div>
             <button className="chat-icon" onClick={() => changePanel('chat')}>
               {panel === 'chat' ? (
-                <Icon glyph={Close} className="icon close-chat" />
+                <CloseIcon className="icon close-chat" />
               ) : (
-                <Icon glyph={Chat} className="icon chat" />
+                <ChatIcon className="icon chat" />
               )}
             </button>
 
@@ -293,13 +293,13 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
               {user && (
                 <Link to="/dashboard">
                   {user.email ? (
-                    <img 
-                      alt="" 
-                      className="photo" 
-                      src={`https://www.gravatar.com/avatar/${md5(user.email)}.jpg?s=20`} 
+                    <img
+                      alt=""
+                      className="photo"
+                      src={`https://www.gravatar.com/avatar/${md5(user.email)}.jpg?s=20`}
                     />
                   ) : (
-                    <Icon glyph={Avatar} />
+                    <AvatarIcon />
                   )}
                   <span>{user.info?.displayName || ''}</span>
                 </Link>
@@ -309,13 +309,13 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
                   dispatch(setUser(null));
                 }}
               >
-                <Icon glyph={Logout} className="icon sign-out" />
+                <LogoutIcon className="icon sign-out" />
               </button>
             </div>
           </div>
         )}
       </div>
-      
+
       <Navigation
         sidenavRef={sidenavRef}
         searchPanelRef={searchPanelRef}
@@ -324,7 +324,7 @@ const TopNavModern: React.FC<TopNavProps> = ({ className = '' }) => {
         closeSearch={closeSearch}
         isSearching={isSearching}
       />
-      
+
       <button
         className="overlay"
         ref={overlayRef}

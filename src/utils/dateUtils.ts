@@ -1,6 +1,6 @@
 /**
  * Date Utility Functions
- * 
+ *
  * Utility functions for date formatting and manipulation.
  */
 
@@ -86,36 +86,36 @@ export const getRelativeTime = (dateString: string): string => {
     const date = new Date(dateString);
     const now = new Date();
     const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-    
+
     if (diffInSeconds < 60) {
       return 'just now';
     }
-    
+
     const diffInMinutes = Math.floor(diffInSeconds / 60);
     if (diffInMinutes < 60) {
       return `${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''} ago`;
     }
-    
+
     const diffInHours = Math.floor(diffInMinutes / 60);
     if (diffInHours < 24) {
       return `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
     }
-    
+
     const diffInDays = Math.floor(diffInHours / 24);
     if (diffInDays < 7) {
       return `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
     }
-    
+
     const diffInWeeks = Math.floor(diffInDays / 7);
     if (diffInWeeks < 4) {
       return `${diffInWeeks} week${diffInWeeks > 1 ? 's' : ''} ago`;
     }
-    
+
     const diffInMonths = Math.floor(diffInDays / 30);
     if (diffInMonths < 12) {
       return `${diffInMonths} month${diffInMonths > 1 ? 's' : ''} ago`;
     }
-    
+
     const diffInYears = Math.floor(diffInDays / 365);
     return `${diffInYears} year${diffInYears > 1 ? 's' : ''} ago`;
   } catch (error) {
@@ -200,4 +200,44 @@ export const getDaysBetween = (
     console.error('Error getting days between dates:', error);
     return 0;
   }
+};
+
+/**
+ * Get today's date in YYYY-MM-DD format
+ */
+export const getTodayDateString = (): string => {
+  return new Date().toISOString().split('T')[0];
+};
+
+/**
+ * Get a future date in YYYY-MM-DD format
+ * @param daysFromNow Number of days from now
+ */
+export const getFutureDateString = (daysFromNow: number): string => {
+  const date = new Date();
+  date.setDate(date.getDate() + daysFromNow);
+  return date.toISOString().split('T')[0];
+};
+
+/**
+ * Format a Firestore timestamp or date string to YYYY-MM-DD
+ * @param date Firestore timestamp or date string
+ * @param defaultValue Default value if date is undefined
+ */
+export const formatFirestoreDate = (
+  date: any,
+  defaultValue: string = getTodayDateString()
+): string => {
+  if (!date) return defaultValue;
+
+  if (typeof date === 'string') {
+    return date;
+  }
+
+  // Handle Firestore timestamp
+  if (date.toDate && typeof date.toDate === 'function') {
+    return date.toDate().toISOString().split('T')[0];
+  }
+
+  return defaultValue;
 };

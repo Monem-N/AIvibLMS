@@ -9,6 +9,8 @@
 # Production
 /build
 /dist
+/dataconnect
+/dataconnect-generated
 
 # Misc
 .DS_Store

@@ -45,6 +45,7 @@ export interface Notification {
   message: string;
   type: 'success' | 'error' | 'info' | 'warning';
   visible: boolean;
+  duration?: number;
 }
 
 /**

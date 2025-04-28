@@ -47,11 +47,13 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator accesses the administrative dashboard.
 
 **User Actions**:
+
 - Log in to the LMS with administrator credentials
 - Click on "Admin" or "Administration" in the navigation menu
 - Verify identity if prompted (optional second factor)
 
 **System Actions**:
+
 - Authenticate the user
 - Verify administrator role/permissions
 - Load the administrative dashboard interface
@@ -59,17 +61,20 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Log access for security audit
 
 **UI Components**:
+
 - Login form
 - Navigation menu with admin option
 - Admin dashboard layout
 - System overview widgets
 
 **Data Involved**:
+
 - User authentication data
 - User role/permission data
 - System overview metrics
 
 **Conditions and Rules**:
+
 - User must have administrator role (level 5 in legacy system)
 - Access may be restricted based on IP address or time of day
 - Failed access attempts should be logged
@@ -80,6 +85,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator views the system overview dashboard with key metrics and status information.
 
 **User Actions**:
+
 - Navigate to the overview section of the admin dashboard
 - Review system status indicators
 - Check key performance metrics
@@ -87,6 +93,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Filter or sort data as needed
 
 **System Actions**:
+
 - Retrieve system status data
 - Calculate key performance metrics
 - Fetch recent activity logs
@@ -94,6 +101,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Highlight any issues or anomalies
 
 **UI Components**:
+
 - System status indicators
 - Performance metric charts
 - Activity log display
@@ -101,6 +109,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Alert notifications for issues
 
 **Data Involved**:
+
 - System status data
 - Performance metrics
 - User activity data
@@ -108,6 +117,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Security alerts
 
 **Conditions and Rules**:
+
 - Data should be refreshed periodically
 - Critical issues should be highlighted
 - Historical data may be available for comparison
@@ -118,6 +128,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator manages various types of content in the system.
 
 **User Actions**:
+
 - Navigate to the content management section
 - Select content type to manage (pages, posts, etc.)
 - Browse existing content
@@ -125,6 +136,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Select content for editing or deletion
 
 **System Actions**:
+
 - Retrieve content data based on type
 - Apply filters or search criteria
 - Display content in list or grid format
@@ -132,6 +144,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Track content management actions
 
 **UI Components**:
+
 - Content type selector
 - Content list/grid view
 - Search and filter controls
@@ -139,12 +152,14 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Pagination controls
 
 **Data Involved**:
+
 - Content metadata
 - Content status information
 - Content relationships
 - Search and filter criteria
 
 **Conditions and Rules**:
+
 - Some content types may have special handling
 - Content with dependencies may have restrictions
 - Published content may require confirmation before modification
@@ -155,6 +170,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator creates new content or edits existing content.
 
 **User Actions**:
+
 - Click "New" or select existing content to edit
 - Enter or modify content details
 - Use content editor for rich text
@@ -163,6 +179,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Save or publish content
 
 **System Actions**:
+
 - Load content editor with existing data (if editing)
 - Process text formatting and media
 - Validate content against rules
@@ -172,6 +189,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Log content changes
 
 **UI Components**:
+
 - Content form
 - Rich text editor
 - Media selector
@@ -180,12 +198,14 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Validation messages
 
 **Data Involved**:
+
 - Content data
 - Media references
 - Content metadata
 - Validation rules
 
 **Conditions and Rules**:
+
 - Content may have required fields
 - Some content types may have specific validation rules
 - Content may have workflow states (draft, review, published)
@@ -197,6 +217,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator manages user accounts in the system.
 
 **User Actions**:
+
 - Navigate to the user management section
 - Browse user list
 - Search or filter for specific users
@@ -204,6 +225,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Select users for actions (edit, disable, delete)
 
 **System Actions**:
+
 - Retrieve user data
 - Apply search or filter criteria
 - Display users in list format
@@ -211,6 +233,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Track user management actions
 
 **UI Components**:
+
 - User list
 - Search and filter controls
 - User detail view
@@ -218,12 +241,14 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Pagination controls
 
 **Data Involved**:
+
 - User account data
 - User role information
 - User status information
 - Search and filter criteria
 
 **Conditions and Rules**:
+
 - Administrators cannot delete their own account
 - Some user actions may require confirmation
 - User data may be subject to privacy regulations
@@ -235,6 +260,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator creates a new user account or edits an existing user.
 
 **User Actions**:
+
 - Click "New User" or select existing user to edit
 - Enter or modify user details
 - Assign roles and permissions
@@ -242,6 +268,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Save changes
 
 **System Actions**:
+
 - Load user form with existing data (if editing)
 - Validate user data
 - Check for duplicate accounts
@@ -251,6 +278,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Log user account changes
 
 **UI Components**:
+
 - User form
 - Role selector
 - Permission controls
@@ -259,12 +287,14 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Validation messages
 
 **Data Involved**:
+
 - User account data
 - Role and permission data
 - Account status information
 - Validation rules
 
 **Conditions and Rules**:
+
 - Email addresses must be unique
 - Password policies must be enforced
 - Role assignments may have restrictions
@@ -277,6 +307,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator views system analytics and reports.
 
 **User Actions**:
+
 - Navigate to the analytics section
 - Select analytics type or dashboard
 - Set date range or other parameters
@@ -285,6 +316,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Export data if needed
 
 **System Actions**:
+
 - Retrieve analytics data based on parameters
 - Calculate metrics and generate visualizations
 - Apply filters and aggregations
@@ -292,6 +324,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Generate export files if requested
 
 **UI Components**:
+
 - Analytics type selector
 - Parameter controls
 - Chart and graph displays
@@ -300,6 +333,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Export buttons
 
 **Data Involved**:
+
 - Usage statistics
 - Performance metrics
 - User activity data
@@ -307,6 +341,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Course completion data
 
 **Conditions and Rules**:
+
 - Data may be aggregated for performance
 - Some data may be anonymized for privacy
 - Historical data may have retention limits
@@ -318,6 +353,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator generates custom reports for analysis or compliance.
 
 **User Actions**:
+
 - Navigate to the reports section
 - Select report type
 - Configure report parameters
@@ -326,6 +362,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Export or schedule report
 
 **System Actions**:
+
 - Present report configuration options
 - Validate report parameters
 - Execute report query
@@ -335,6 +372,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Log report generation
 
 **UI Components**:
+
 - Report type selector
 - Parameter configuration form
 - Report preview
@@ -343,6 +381,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Generation status indicator
 
 **Data Involved**:
+
 - Report templates
 - Report parameters
 - Query results
@@ -350,6 +389,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Schedule information
 
 **Conditions and Rules**:
+
 - Complex reports may have performance impacts
 - Some reports may be pre-generated
 - Reports may have access restrictions
@@ -361,6 +401,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator manages courses in the system.
 
 **User Actions**:
+
 - Navigate to the course management section
 - Browse course list
 - Search or filter for specific courses
@@ -368,6 +409,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Select courses for actions (edit, archive, delete)
 
 **System Actions**:
+
 - Retrieve course data
 - Apply search or filter criteria
 - Display courses in list format
@@ -375,6 +417,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Track course management actions
 
 **UI Components**:
+
 - Course list
 - Search and filter controls
 - Course detail view
@@ -382,12 +425,14 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Pagination controls
 
 **Data Involved**:
+
 - Course data
 - Course status information
 - Enrollment data
 - Search and filter criteria
 
 **Conditions and Rules**:
+
 - Courses with active enrollments may have restrictions
 - Course deletion may require confirmation
 - Course data may include dependencies
@@ -399,6 +444,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator manages files in the system.
 
 **User Actions**:
+
 - Navigate to the file management section
 - Browse file list
 - Search or filter for specific files
@@ -407,6 +453,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Select files for actions (edit metadata, delete)
 
 **System Actions**:
+
 - Retrieve file data
 - Apply search or filter criteria
 - Display files in list or grid format
@@ -415,6 +462,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Track file management actions
 
 **UI Components**:
+
 - File list/grid
 - Search and filter controls
 - File preview
@@ -423,12 +471,14 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Pagination controls
 
 **Data Involved**:
+
 - File metadata
 - File content
 - File usage information
 - Search and filter criteria
 
 **Conditions and Rules**:
+
 - Files in use may have restrictions
 - File types may be limited
 - File size may be limited
@@ -440,6 +490,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator configures system-wide settings.
 
 **User Actions**:
+
 - Navigate to the system configuration section
 - Browse configuration categories
 - View current settings
@@ -447,6 +498,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Save configuration changes
 
 **System Actions**:
+
 - Retrieve current configuration
 - Display settings in appropriate controls
 - Validate configuration changes
@@ -455,6 +507,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Log configuration changes
 
 **UI Components**:
+
 - Configuration category navigation
 - Setting input controls
 - Save button
@@ -462,12 +515,14 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Confirmation dialogs
 
 **Data Involved**:
+
 - System configuration data
 - Default values
 - Validation rules
 - Change history
 
 **Conditions and Rules**:
+
 - Some settings may require system restart
 - Critical settings may require confirmation
 - Some settings may have dependencies
@@ -479,6 +534,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 **Description**: Administrator views system logs for troubleshooting and auditing.
 
 **User Actions**:
+
 - Navigate to the logs section
 - Select log type
 - Set date range or other filters
@@ -487,6 +543,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Export logs if needed
 
 **System Actions**:
+
 - Retrieve log data based on parameters
 - Apply filters
 - Display logs in formatted view
@@ -494,6 +551,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Generate export files if requested
 
 **UI Components**:
+
 - Log type selector
 - Filter controls
 - Log entry display
@@ -502,6 +560,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Pagination controls
 
 **Data Involved**:
+
 - System logs
 - Error logs
 - Security logs
@@ -509,6 +568,7 @@ The Administrative Dashboard workflow enables administrators to manage and monit
 - Filter criteria
 
 **Conditions and Rules**:
+
 - Logs may have retention periods
 - Some log data may be sensitive
 - Large log exports may be processed asynchronously

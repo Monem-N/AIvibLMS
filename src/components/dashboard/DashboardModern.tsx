@@ -1,6 +1,6 @@
 /**
  * DashboardModern Component
- * 
+ *
  * Modern dashboard component using functional components and hooks.
  * Provides an overview of user's courses, activities, and progress.
  */
@@ -26,19 +26,19 @@ const DashboardModern: React.FC = () => {
   // State
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  
+
   // Hooks
   const { user } = useAuthContext();
   const { fetchUserData } = useFirebase();
-  
-  // Redux state
-  const userData = useSelector((state: RootState) => state.user.userData);
-  
+
+  // Redux state - access userData from mainReducer to match the state structure
+  const userData = useSelector((state: RootState) => state.mainReducer.userData);
+
   // Effect to fetch user data
   useEffect(() => {
     const loadUserData = async () => {
       if (!user) return;
-      
+
       try {
         setIsLoading(true);
         await fetchUserData(user.uid);
@@ -50,10 +50,10 @@ const DashboardModern: React.FC = () => {
         setIsLoading(false);
       }
     };
-    
+
     loadUserData();
   }, [user, fetchUserData]);
-  
+
   // If loading, show loading state
   if (isLoading) {
     return (
@@ -65,7 +65,7 @@ const DashboardModern: React.FC = () => {
       </div>
     );
   }
-  
+
   // If error, show error state
   if (error) {
     return (
@@ -73,7 +73,7 @@ const DashboardModern: React.FC = () => {
         <div className="dashboard-error">
           <div className="error-icon">!</div>
           <p>{error}</p>
-          <button 
+          <button
             className="btn btn-primary"
             onClick={() => window.location.reload()}
           >
@@ -83,48 +83,48 @@ const DashboardModern: React.FC = () => {
       </div>
     );
   }
-  
+
   return (
     <div className="dashboard-container">
-      <DashboardHeader 
-        user={user} 
+      <DashboardHeader
+        user={user}
         lastLogin={user?.metadata?.lastLoginAt}
       />
-      
+
       <div className="dashboard-content">
         <div className="dashboard-main">
           <div className="dashboard-row">
-            <CoursesWidget 
+            <CoursesWidget
               className="widget-large"
               courses={userData?.courses || []}
             />
           </div>
-          
+
           <div className="dashboard-row">
-            <ActivitiesWidget 
+            <ActivitiesWidget
               className="widget-medium"
               activities={userData?.activities || []}
             />
-            
-            <ProgressWidget 
+
+            <ProgressWidget
               className="widget-medium"
               progress={userData?.progress || {}}
             />
           </div>
         </div>
-        
+
         <div className="dashboard-sidebar">
-          <CalendarWidget 
+          <CalendarWidget
             className="widget-full"
             events={userData?.events || []}
           />
-          
-          <MessagesWidget 
+
+          <MessagesWidget
             className="widget-full"
             messages={userData?.messages || []}
           />
-          
-          <AnnouncementsWidget 
+
+          <AnnouncementsWidget
             className="widget-full"
             announcements={userData?.announcements || []}
           />

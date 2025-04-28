@@ -1,16 +1,25 @@
-# Hypatia LMS Component Library
+# AIvibLMS Component Library
 
-This documentation provides a comprehensive guide to the reusable components in the Hypatia LMS modernization project. The component library is designed to ensure consistency, improve developer efficiency, and reduce technical debt.
+This documentation provides a comprehensive guide to the reusable components and services in the AIvibLMS (Hypatia LMS modernization) project. The component library is designed to ensure consistency, improve developer efficiency, and reduce technical debt.
 
-## Component Categories
+The AIvibLMS application uses a hybrid Firebase/Supabase approach, where Firebase handles authentication and database operations, while Supabase handles file storage. This architecture is reflected in the component library, with specialized components and services for each platform.
 
-The component library is organized into the following categories:
+## Library Categories
 
+The library is organized into the following categories:
+
+### Components
+
+- **[Core Components](./components/core/README.md)**: Foundational components for application initialization and service integration
 - **[UI Components](./ui/README.md)**: Basic UI elements such as buttons, cards, modals, etc.
 - **[Form Components](./form/README.md)**: Form elements and validation components
 - **[Navigation Components](./navigation/README.md)**: Navigation elements such as menus, breadcrumbs, etc.
 - **[Data Components](./data/README.md)**: Data display components such as tables, lists, charts, etc.
 - **[Feature-Specific Components](./feature-specific/README.md)**: Components specific to features such as grading, course management, etc.
+
+### Services
+
+- **[Services](./services/README.md)**: Reusable modules that provide functionality to components and other services
 
 ## Using This Documentation
 
@@ -80,7 +89,7 @@ import { ComponentName } from 'components/path/to/ComponentName';
 ### Advanced Example
 
 ```tsx
-<ComponentName 
+<ComponentName
   prop1="value"
   prop2={42}
   prop3={() => console.log('callback')}
@@ -99,7 +108,8 @@ Known edge cases and limitations.
 
 - [RelatedComponent1](./RelatedComponent1.md)
 - [RelatedComponent2](./RelatedComponent2.md)
-```
+
+```markdown
 
 ## Interactive Examples
 

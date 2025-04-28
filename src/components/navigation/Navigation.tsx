@@ -8,23 +8,23 @@ import { ADMIN_LEVEL } from '../../constants/constants';
 import { NavigationProps, NavItem } from '../../types/navigation';
 import { RootState } from '../../types/state';
 
-// Import SVG icons
-import Trophy from '../../../assets/svg/trophy.svg';
-import Calendar from '../../../assets/svg/calendar.svg';
-import Info from '../../../assets/svg/info.svg';
-import SearchIcon from '../../../assets/svg/search.svg';
-import Close from '../../../assets/svg/x.svg';
-import Forward from '../../../assets/svg/forward.svg';
-import Chat from '../../../assets/svg/chat.svg';
-import Course from '../../../assets/svg/course.svg';
-import Subject from '../../../assets/svg/subject.svg';
-import Module from '../../../assets/svg/module.svg';
-import Activity from '../../../assets/svg/activity.svg';
-import Post from '../../../assets/svg/post.svg';
-import Admin from '../../../assets/svg/cog.svg';
-import Dashboard from '../../../assets/svg/dashboard.svg';
-import Team from '../../../assets/svg/team.svg';
-import Account from '../../../assets/svg/account.svg';
+// Import Material-UI icons
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'; // Trophy
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import InfoIcon from '@mui/icons-material/Info';
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'; // Forward
+import ChatIcon from '@mui/icons-material/Chat';
+import SchoolIcon from '@mui/icons-material/School'; // Course
+import CategoryIcon from '@mui/icons-material/Category'; // Subject
+import ViewModuleIcon from '@mui/icons-material/ViewModule'; // Module
+import AssignmentIcon from '@mui/icons-material/Assignment'; // Activity
+import ArticleIcon from '@mui/icons-material/Article'; // Post
+import SettingsIcon from '@mui/icons-material/Settings'; // Admin
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import GroupsIcon from '@mui/icons-material/Groups'; // Team
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'; // Account
 
 // Import CSS
 import './Navigation.css';
@@ -43,12 +43,13 @@ const Navigation: React.FC<NavigationProps> = ({
   isSearching
 }) => {
   const location = useLocation();
+  // Access user data from mainReducer instead of user reducer to match the state structure
   const user = useSelector((state: RootState) => state.mainReducer.user);
   const userData = useSelector((state: RootState) => state.mainReducer.userData);
-  
+
   // State to track opened navigation items
   const [openItems, setOpenItems] = useState<Record<number, boolean>>({});
-  
+
   /**
    * Toggle a navigation item's expanded state
    * @param {number} itemId - ID of the navigation item
@@ -59,7 +60,7 @@ const Navigation: React.FC<NavigationProps> = ({
       [itemId]: !prevState[itemId]
     }));
   };
-  
+
   /**
    * Render a navigation item
    * @param {Object} item - Navigation item data
@@ -69,27 +70,27 @@ const Navigation: React.FC<NavigationProps> = ({
   const renderItem = (item: NavItem, index: number): React.ReactNode => {
     const hasChildren = item.children ? 'has-children' : '';
     const isOpen = openItems[item.id] ? 'opened' : '';
-    
+
     // Check if user has permission to see this item
     if (item.level && (!userData || !userData.info || item.level > userData.info.level)) {
       return null;
     }
-    
+
     return (
       <li key={index} className={`nav-item ${hasChildren} ${isOpen}`}>
-        {item.icon && <Icon glyph={item.icon} className="icon item-icon" />}
-        
+        {item.icon}
+
         {item.children ? (
           <button className="title" onClick={() => toggleItem(item.id)}>
             {item.title}
-            <Icon glyph={Forward} className="icon arrow" />
+            <ArrowForwardIosIcon className="icon arrow" fontSize="small" />
           </button>
         ) : (
           <Link to={item.link || '#'} className="title" onClick={toggleNav}>
             {item.title}
           </Link>
         )}
-        
+
         {item.children && (
           <ul className="nav-children">
             {item.children.map((child) => (
@@ -104,58 +105,58 @@ const Navigation: React.FC<NavigationProps> = ({
       </li>
     );
   };
-  
+
   return (
     <nav className="navigation">
       <Breadcrumbs location={location} />
-      
+
       <div className="sidenav flyout" ref={sidenavRef}>
         <button className="mobile-close" onClick={toggleNav}>
-          <Icon glyph={Close} className="icon close" />
+          <CloseIcon className="icon close" />
         </button>
-        
+
         <table className="mobile-nav-items">
           <tbody>
             <tr>
               <td>
                 <button className="mobile-nav-item" onClick={toggleNav}>
-                  <Icon glyph={Calendar} className="icon calendar" />
+                  <CalendarTodayIcon className="icon calendar" />
                 </button>
               </td>
               <td>
                 <button className="mobile-nav-item" onClick={toggleNav}>
-                  <Icon glyph={Trophy} className="icon trophy" />
+                  <EmojiEventsIcon className="icon trophy" />
                 </button>
               </td>
               <td>
                 <button className="mobile-nav-item" onClick={toggleNav}>
-                  <Icon glyph={Info} className="icon info" />
+                  <InfoIcon className="icon info" />
                 </button>
               </td>
               <td>
                 <button className="mobile-nav-item" onClick={toggleSearch}>
-                  <Icon glyph={SearchIcon} className="icon search" />
+                  <SearchIcon className="icon search" />
                 </button>
               </td>
               <td>
                 <button className="mobile-nav-item">
-                  <Icon glyph={Chat} />
+                  <ChatIcon />
                 </button>
               </td>
             </tr>
           </tbody>
         </table>
-        
+
         <div className="nav-scroll">
           <ul className="nav-items">
             {nav_items && nav_items.map((item, i) => renderItem(item, i))}
           </ul>
         </div>
       </div>
-      
-      <Search 
+
+      <Search
         searchPanelRef={searchPanelRef}
-        closeSearch={closeSearch} 
+        closeSearch={closeSearch}
         isSearching={isSearching}
       />
     </nav>
@@ -167,13 +168,13 @@ Navigation.defaultProps = {
     {
       id: 0,
       title: 'Dashboard',
-      icon: Dashboard,
+      icon: <DashboardIcon className="icon item-icon" />,
       link: '/dashboard'
     },
     {
       id: 12,
       title: 'Account',
-      icon: Account,
+      icon: <AccountCircleIcon className="icon item-icon" />,
       children: [
         {
           id: 13,
@@ -185,37 +186,37 @@ Navigation.defaultProps = {
     {
       id: 1,
       title: 'Courses',
-      icon: Course,
+      icon: <SchoolIcon className="icon item-icon" />,
       link: '/courses'
     },
     {
       id: 2,
       title: 'Subjects',
-      icon: Subject,
+      icon: <CategoryIcon className="icon item-icon" />,
       link: '/subjects'
     },
     {
       id: 3,
       title: 'Modules',
-      icon: Module,
+      icon: <ViewModuleIcon className="icon item-icon" />,
       link: '/modules'
     },
     {
       id: 4,
       title: 'Activities',
-      icon: Activity,
+      icon: <AssignmentIcon className="icon item-icon" />,
       link: '/activities'
     },
     {
       id: 5,
       title: 'Blog',
-      icon: Post,
+      icon: <ArticleIcon className="icon item-icon" />,
       link: '/blog'
     },
     {
       id: 6,
       title: 'About',
-      icon: Team,
+      icon: <GroupsIcon className="icon item-icon" />,
       children: [
         {
           id: 7,
@@ -237,7 +238,7 @@ Navigation.defaultProps = {
     {
       id: 11,
       title: 'Admin',
-      icon: Admin,
+      icon: <SettingsIcon className="icon item-icon" />,
       link: '/admin',
       level: ADMIN_LEVEL
     }
